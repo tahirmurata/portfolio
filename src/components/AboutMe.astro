@@ -1,0 +1,29 @@
+---
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+---
+
+<Card className="lg:col-start-4 md:row-span-7 lg:row-span-7 md:row-start-3">
+    <CardHeader>
+        <CardTitle>About me</CardTitle>
+        <CardDescription>
+            <p class="leading-5">
+                Hi, I'm Tahir, a backend software developer from Japan.
+            </p>
+            <p class="mt-1 leading-5">My primary tools of choice includes:</p>
+            <ul class="my-3 ml-5 list-disc [&>li]:mt-2">
+                <li>Golang</li>
+                <li>Javascript</li>
+                <li>Typescript</li>
+                <li>Tailwind CSS</li>
+            </ul>
+            Blah, blah, blah. More yapping.
+        </CardDescription>
+    </CardHeader>
+</Card>

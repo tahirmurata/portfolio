@@ -1,0 +1,24 @@
+---
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+---
+
+<Card className="md:row-span-3 lg:row-span-4 md:row-start-3 lg:row-start-5">
+    <CardHeader>
+        <CardTitle>Contact me</CardTitle>
+    </CardHeader>
+    <CardContent>
+        <p class="text-muted-foreground italic">Socials</p>
+        <ul class="my-2 [&>li]:mt-1">
+            <li>Github</li>
+            <li>Gitlab</li>
+            <li>Twitter</li>
+        </ul>
+    </CardContent>
+</Card>
