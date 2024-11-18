@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 
@@ -12,5 +12,12 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     react()
-  ]
+  ],
+  experimental: {
+    env: {
+      schema: {
+        GITHUB_SHA: envField.string({ context: "client", access: "public", optional: true }),
+      }
+    }
+  }
 });
