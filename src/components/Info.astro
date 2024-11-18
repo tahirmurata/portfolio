@@ -1,0 +1,31 @@
+---
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+
+import { CopyrightIcon } from "lucide-react";
+
+// Obtain the version and commit hash
+import { version } from "package.json";
+import { GITHUB_SHA } from "astro:env/client";
+---
+
+<Card className="md:col-start-3 lg:col-start-4 md:row-start-9 lg:row-start-8">
+    <div
+        class="flex flex-col justify-center items-center gap-y-1 p-6 md:p-0 h-full font-mono text-muted-foreground text-xs"
+    >
+        <span class="flex items-center gap-x-1">
+            <CopyrightIcon size={12} /> 2024 Tahir Murata
+        </span>
+        <span>
+            Version {version} - Hash: {
+                (GITHUB_SHA ?? "development").substring(0, 7)
+            }
+        </span>
+    </div>
+</Card>
