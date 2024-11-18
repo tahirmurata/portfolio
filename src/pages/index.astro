@@ -3,7 +3,13 @@ import Layout from "@/layouts/Layout.astro";
 
 import AboutMe from "@/components/AboutMe.astro";
 import Socials from "@/components/Socials.astro";
+import TimeZone from "@/components/TimeZone.astro";
+import Info from "@/components/Info.astro";
+import Projects from "@/components/Projects.astro";
 
+import { ModeToggle } from "@/components/ModeToggle";
+
+import { Separator } from "@/components/ui/separator";
 import {
 	Card,
 	CardContent,
@@ -15,76 +21,41 @@ import {
 ---
 
 <Layout title="Tahir Murata">
-	<!-- <main
-		class="lg:gap-4 grid lg:grid-cols-4 lg:grid-rows-8 mx-auto lg:my-4 md:p-6 max-w-6xl h-screen lg:max-h-[800px]"
-	> -->
 	<main
-		class="relative gap-2 sm:gap-2 md:gap-3 lg:gap-4 grid md:grid-cols-3 lg:grid-cols-4 md:grid-rows-9 lg:grid-rows-8 m-auto p-2 sm:p-4 md:p-6 w-full max-w-6xl lg:h-screen lg:max-h-[800px] overflow-hidden"
+		class="gap-2 sm:gap-2 md:gap-3 lg:gap-4 grid md:grid-cols-3 lg:grid-cols-4 md:grid-rows-9 lg:grid-rows-8 m-auto p-2 sm:p-4 md:p-6 w-full max-w-6xl lg:h-screen lg:max-h-[800px] overflow-hidden"
 	>
 		<Card
-			className="md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-4"
+			className="relative md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-4 overflow-hidden dark"
 		>
-			<Card className="border-none">
-				<CardHeader>
-					<CardDescription className="font-thin">
-						welcome
-					</CardDescription>
-					<CardTitle className="font-extralight">
+			<div
+				class="absolute inset-0 bg-cover bg-center blur lg:blur-none"
+				style={{ backgroundImage: "url(/banner.jpg)" }}
+			>
+			</div>
+			<CardHeader className="relative z-10">
+				<CardDescription className="font-thin">
+					welcome
+				</CardDescription>
+				<CardTitle className="font-extralight">
+					<h1>
 						Hi, I'm
 						<span class="font-semibold text-foreground"
 							>Tahir Murata</span
 						>, a backend software developer based in Japan.
-					</CardTitle>
-				</CardHeader>
-				<CardFooter> Github </CardFooter>
-			</Card>
+					</h1>
+				</CardTitle>
+			</CardHeader>
 		</Card>
 		<AboutMe />
 		<Socials />
-		<Card
-			className="lg:col-start-2 md:row-span-3 lg:row-span-3 md:row-start-3 lg:row-start-6"
-		>
-			Projects
-		</Card>
+		<Projects />
 		<Card
 			className="md:col-start-3 lg:col-start-3 md:row-span-3 lg:row-span-3 md:row-start-6 lg:row-start-6"
 		>
 			Blog
 		</Card>
-		<Card
-			className="md:col-start-2 lg:col-start-2 md:row-span-2 lg:row-span-1 md:row-start-6 lg:row-start-5"
-		>
-			Timezone
-		</Card>
-		<Card
-			className="md:col-start-2 lg:col-start-3 md:row-span-2 lg:row-span-1 md:row-start-8 lg:row-start-5"
-		>
-			Status
-		</Card>
-		<Card
-			className="md:col-start-3 lg:col-start-4 md:row-start-9 lg:row-start-8"
-		>
-			Info
-		</Card>
-		<!-- <Card
-			className="md:col-start-2 lg:col-start-auto md:row-span-2 lg:row-span-1 md:row-start-6 lg:row-start-5"
-			>Timezone</Card
-		>
-		<Card
-			className="md:col-start-2 lg:col-start-auto md:row-span-2 lg:row-span-1 md:row-start-8 lg:row-start-5"
-			>Status</Card
-		>
-		<Card
-			className="md:col-start-3 lg:col-start-2 md:row-span-3 lg:row-span-3 md:row-start-3 lg:row-start-6"
-			>Projects</Card
-		>
-		<Card
-			className="md:col-start-3 lg:col-start-3 md:row-span-3 lg:row-span-3 md:row-start-6 lg:row-start-6"
-			>Blog</Card
-		>
-		<Card
-			className="md:col-start-3 lg:col-start-4 lg:row-span-2 md:row-start-9 lg:row-start-7"
-			>Info</Card
-		> -->
+		<TimeZone />
+		<ModeToggle client:load />
+		<Info />
 	</main>
 </Layout>
