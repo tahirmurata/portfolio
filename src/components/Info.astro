@@ -17,12 +17,12 @@ import { GITHUB_SHA } from "astro:env/client";
 
 <Card className="md:col-start-3 lg:col-start-4 md:row-start-9 lg:row-start-8">
     <div
-        class="flex flex-col justify-center items-center gap-y-1 p-6 md:p-0 h-full font-mono text-muted-foreground text-xs"
+        class="flex flex-col justify-center items-center gap-y-1 p-6 md:p-0 h-full text-muted-foreground text-xs"
     >
         <span class="flex items-center gap-x-1">
             <CopyrightIcon size={12} /> 2024 Tahir Murata
         </span>
-        <span>
+        <span class="font-mono">
             Version {version} - Hash: {
                 (GITHUB_SHA ?? "development").substring(0, 7)
             }
