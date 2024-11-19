@@ -9,18 +9,22 @@ import {
 } from "@/components/ui/card";
 ---
 
-<Card className="md:row-span-5 lg:row-span-4 md:row-start-3 lg:row-start-5">
+<Card
+    className="md:row-span-5 lg:row-span-4 md:row-start-3 lg:row-start-5 overflow-hidden"
+>
     <CardHeader>
         <CardTitle>Contact me</CardTitle>
     </CardHeader>
     <CardContent>
         <p class="text-muted-foreground italic">Email</p>
         <ul class="my-2 [&>li]:mt-1">
-            <li id="c921587">
-                <span class="text-muted-foreground">Enable Javascript</span>
+            <li>
+                <a id="c921587" class="text-muted-foreground">
+                    Enable Javascript
+                </a>
             </li>
         </ul>
-        <p class="text-muted-foreground italic">Socials</p>
+        <p class="mt-4 text-muted-foreground italic">Socials</p>
         <ul class="my-2 [&>li]:mt-1">
             <li>Github</li>
             <li>Gitlab</li>
@@ -49,5 +53,10 @@ import {
     ]);
     const data_ = chacha.decrypt(ciphertext);
 
-    document.querySelector("#c921587")!.textContent = bytesToUtf8(data_);
+    const a = document.querySelector("#c921587");
+    if (a && a instanceof HTMLAnchorElement) {
+        a.href = `mailto:${bytesToUtf8(data_)}`;
+        a.textContent = bytesToUtf8(data_);
+        a.classList.remove("text-muted-foreground");
+    }
 </script>
