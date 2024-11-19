@@ -9,7 +9,6 @@ import Projects from "@/components/Projects.astro";
 
 import { ModeToggle } from "@/components/ModeToggle";
 
-import { Separator } from "@/components/ui/separator";
 import {
 	Card,
 	CardContent,
@@ -25,7 +24,7 @@ import {
 		class="gap-2 sm:gap-2 md:gap-3 lg:gap-4 grid md:grid-cols-3 lg:grid-cols-4 md:grid-rows-9 lg:grid-rows-8 m-auto p-2 sm:p-4 md:p-6 w-full max-w-6xl lg:h-screen lg:max-h-[800px] overflow-hidden"
 	>
 		<Card
-			className="relative md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-4 overflow-hidden dark"
+			className="relative md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-4 overflow-hidden"
 		>
 			<div
 				class="absolute inset-0 bg-cover bg-center blur lg:blur-none"
@@ -33,15 +32,16 @@ import {
 			>
 			</div>
 			<CardHeader className="relative z-10">
-				<CardDescription className="font-thin">
+				<CardDescription
+					className="font-thin text-muted-foreground dark"
+				>
 					welcome
 				</CardDescription>
-				<CardTitle className="font-extralight">
+				<CardTitle className="font-extralight text-foreground dark">
 					<h1>
 						Hi, I'm
-						<span class="font-semibold text-foreground"
-							>Tahir Murata</span
-						>, a backend software developer based in Japan.
+						<span class="font-semibold">Tahir Murata</span>, a
+						backend software developer based in Japan.
 					</h1>
 				</CardTitle>
 			</CardHeader>
