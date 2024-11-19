@@ -25,9 +25,7 @@ import { GITHUB_SHA } from "astro:env/client";
             <CopyrightIcon size={12} /> 2024 Tahir Murata
         </span>
         <span class="font-mono">
-            Version {version} - Hash: {
-                (GITHUB_SHA ?? "development").substring(0, 7)
-            }
+            {version} ({(GITHUB_SHA ?? "development").substring(0, 7)})
         </span>
     </div>
 </Card>
