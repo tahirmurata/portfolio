@@ -17,15 +17,15 @@ import {
     </CardHeader>
     <CardContent>
         <p class="text-muted-foreground italic">Email</p>
-        <ul class="my-2 [&>li]:mt-1">
+        <ul class="my-2">
             <li>
                 <a id="c921587" class="text-muted-foreground">
                     Enable Javascript
                 </a>
             </li>
         </ul>
-        <p class="mt-4 text-muted-foreground italic">Socials</p>
-        <ul class="my-2 [&>li]:mt-1">
+        <p class="mt-5 text-muted-foreground italic">Socials</p>
+        <ul class="my-2">
             <li>Github</li>
             <li>Gitlab</li>
             <li>Twitter</li>
@@ -53,5 +53,6 @@ import {
         a.href = `mailto:${bytesToUtf8(data_)}`;
         a.textContent = bytesToUtf8(data_);
         a.classList.remove("text-muted-foreground");
+        a.classList.add("hover:underline");
     }
 </script>
