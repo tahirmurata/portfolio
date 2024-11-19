@@ -1,0 +1,32 @@
+---
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import Project from "./Project.astro";
+---
+
+<Card
+    className="lg:col-start-2 md:row-span-3 lg:row-span-3 md:row-start-3 lg:row-start-6 overflow-hidden"
+>
+    <CardHeader>
+        <CardTitle>Projects</CardTitle>
+    </CardHeader>
+    <CardContent className="gap-2 grid grid-cols-1 sm:grid-cols-2">
+        <!-- <ul class="ml-6 list-disc [&>li]:mt-2">
+            <!-- <li></li>
+          <li>2nd level of jokes: 10 gold coins</li>
+          <li>3rd level of one-liners : 20 gold coins</li> -->
+        <!-- <Card>
+            <CardHeader>
+                <CardDescription>Project 1</CardDescription>
+            </CardHeader>
+        </Card> -->
+        <Project title="Project 1" description="This is a project" />
+        <Project title="Project 2" description="This is a project" />
+    </CardContent>
+</Card>
