@@ -1,0 +1,50 @@
+---
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+---
+
+<Card
+    className="relative md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-4 overflow-hidden"
+>
+    <!-- 
+        Artwork by Gracile https://www.gracile.jp/
+    -->
+    <div
+        class="absolute inset-0 bg-cover bg-center blur-md md:blur-sm lg:blur-none"
+        style="background-image:url('/banner.jpg');"
+    >
+    </div>
+    <div class="right-0 bottom-0 absolute p-2 dark">
+        <p
+            class="font-thin text-foreground text-xs lg:text-muted-foreground dark"
+        >
+            Artwork by <a
+                class="underline"
+                href="https://www.gracile.jp"
+                target="_blank">Gracile</a
+            >
+        </p>
+    </div>
+    <CardHeader className="relative z-10">
+        <CardDescription
+            className="font-thin text-foreground lg:text-muted-foreground dark"
+        >
+            welcome
+        </CardDescription>
+        <CardTitle
+            className="flex flex-row mt-0 font-extralight text-foreground text-pretty dark"
+        >
+            <h1 class="max-w-96 basis-2/3">
+                Hi, I'm
+                <span class="font-semibold text-nowrap">Tahir Murata</span>, a
+                backend software developer based in Japan.
+            </h1>
+        </CardTitle>
+    </CardHeader>
+</Card>
