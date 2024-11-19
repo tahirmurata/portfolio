@@ -17,7 +17,7 @@ export function ModeToggle() {
 
     return (
         <Card
-            className="md:col-start-2 lg:col-start-3 md:row-start-9 lg:row-start-5"
+            className="md:col-start-2 lg:col-start-3 md:row-start-9 lg:row-start-5 overflow-hidden"
         >
             <div
                 className="flex flex-col justify-center items-center gap-4 p-6 md:p-0 h-full"
