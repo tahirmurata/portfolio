@@ -7,26 +7,29 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import Project from "./Project.astro";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 ---
 
 <Card
-    className="lg:col-start-2 md:row-span-3 lg:row-span-3 md:row-start-3 lg:row-start-6 overflow-hidden"
+    className="flex flex-col justify-between lg:col-start-2 md:row-span-3 lg:row-span-3 md:row-start-3 lg:row-start-6 overflow-hidden"
 >
     <CardHeader>
         <CardTitle>Projects</CardTitle>
     </CardHeader>
-    <CardContent className="gap-2 grid grid-cols-1 sm:grid-cols-2">
-        <!-- <ul class="ml-6 list-disc [&>li]:mt-2">
-            <!-- <li></li>
-          <li>2nd level of jokes: 10 gold coins</li>
-          <li>3rd level of one-liners : 20 gold coins</li> -->
-        <!-- <Card>
-            <CardHeader>
-                <CardDescription>Project 1</CardDescription>
-            </CardHeader>
-        </Card> -->
-        <Project title="Project 1" description="This is a project" />
-        <Project title="Project 2" description="This is a project" />
+    <CardContent>
+        <ul class="ml-5 list-disc [&>li]:mt-2">
+            <li><a class="hover:underline" href="#">Project 1</a></li>
+            <li><a class="hover:underline" href="#">Project 2</a></li>
+            <li><a class="hover:underline" href="#">Project 3</a></li>
+        </ul>
     </CardContent>
+    <CardFooter>
+        <Button className="flex items-center w-full group">
+            More projects
+            <ArrowUpRight
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200"
+            />
+        </Button>
+    </CardFooter>
 </Card>

@@ -7,10 +7,29 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 ---
 
 <Card
-    className="md:col-start-3 lg:col-start-3 md:row-span-3 lg:row-span-3 md:row-start-6 lg:row-start-6 overflow-hidden"
+    className="flex flex-col justify-between md:col-start-3 lg:col-start-3 md:row-span-3 lg:row-span-3 md:row-start-6 lg:row-start-6 overflow-hidden"
 >
-    Blog
+    <CardHeader>
+        <CardTitle>Blog</CardTitle>
+    </CardHeader>
+    <CardContent>
+        <ul class="ml-5 list-disc [&>li]:mt-2">
+            <li><a class="hover:underline" href="#">Article 1</a></li>
+            <li><a class="hover:underline" href="#">Article 2</a></li>
+            <li><a class="hover:underline" href="#">Article 3</a></li>
+        </ul>
+    </CardContent>
+    <CardFooter>
+        <Button className="flex items-center w-full group">
+            More articles
+            <ArrowUpRight
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200"
+            />
+        </Button>
+    </CardFooter>
 </Card>
