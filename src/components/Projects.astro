@@ -1,35 +1,76 @@
 ---
 import {
     Card,
-    CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+
+interface Props {
+    grids: string;
+}
+
+const { grids } = Astro.props;
+
+const projects = [
+    {
+        name: "F3S",
+        link: "https://github.com/pastc/f3s",
+    },
+    {
+        name: "Vero",
+        link: "https://github.com/pastc/vero",
+    },
+    {
+        name: "Petch",
+        link: "https://github.com/pastc/petch",
+    },
+];
 ---
 
 <Card
-    className="flex flex-col justify-between lg:col-start-2 md:row-span-3 lg:row-span-3 md:row-start-3 lg:row-start-6 overflow-hidden"
+    className={`flex flex-col justify-between overflow-hidden group hover:cursor-pointer hover:border-muted-foreground ${grids}`}
+    id="project_card"
 >
     <CardHeader>
-        <CardTitle>Projects</CardTitle>
-    </CardHeader>
-    <CardContent>
-        <ul class="ml-5 list-disc [&>li]:mt-2">
-            <li><a class="hover:underline" href="#">Project 1</a></li>
-            <li><a class="hover:underline" href="#">Project 2</a></li>
-            <li><a class="hover:underline" href="#">Project 3</a></li>
-        </ul>
-    </CardContent>
-    <CardFooter>
-        <Button className="flex items-center w-full group">
-            More projects
+        <CardTitle className="flex flex-row justify-between">
+            <span class="text-xl">Projects</span>
             <ArrowUpRight
-                className="transition-transform translate-y-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200"
+                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-200 size-6"
             />
-        </Button>
-    </CardFooter>
+        </CardTitle>
+        <CardDescription>
+            <ul class="ml-5 text-foreground list-disc [&>li]:mt-2">
+                {
+                    projects.map((project) => (
+                        <li>
+                            <a class="hover:underline" href={project.link}>
+                                {project.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </CardDescription>
+    </CardHeader>
 </Card>
+
+<script>
+    const projectCard = document.getElementById("project_card");
+    if (projectCard) {
+        const links = projectCard.getElementsByTagName("a");
+
+        // Add click handlers to all links to prevent event bubbling
+        Array.from(links).forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // Add click handler to card
+        projectCard.addEventListener("click", (e) => {
+            window.location.href = "/projects";
+        });
+    }
+</script>
