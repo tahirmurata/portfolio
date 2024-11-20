@@ -1,6 +1,6 @@
 ---
 import { Card } from "@/components/ui/card";
-import { Moon, Sun } from "lucide-react";
+import { Circle } from "lucide-react";
 
 interface Props {
     grids: string;
@@ -62,9 +62,16 @@ const { grids } = Astro.props;
         class="flex flex-col justify-center items-center gap-4 p-6 md:p-0 h-full"
     >
         <span class="sr-only">Toggle theme</span>
-        <div class="flex items-center">
-            <Sun className="dark:hidden size-7" />
-            <Moon className="dark:block hidden size-7" />
+        <div class="relative flex items-center">
+            <div class="relative flex items-center size-8">
+                <Circle
+                    className="absolute inset-0 dark:opacity-0 transition-all duration-300 size-8"
+                    fill="currentColor"
+                />
+                <Circle
+                    className="absolute inset-0 opacity-0 dark:opacity-100 transition-all duration-300 size-8"
+                />
+            </div>
         </div>
-    </div>
-</Card>
+    </div></Card
+>
