@@ -6,6 +6,21 @@ interface Props {
 }
 
 const { grids } = Astro.props;
+
+const socials = [
+    {
+        name: "Github",
+        url: "https://github.com/pastc",
+    },
+    {
+        name: "Gitlab",
+        url: "https://gitlab.com/paste",
+    },
+    {
+        name: "Twitter",
+        url: "https://twitter.com/_pastc",
+    },
+];
 ---
 
 <Card className={`overflow-hidden ${grids}`}>
@@ -23,9 +38,15 @@ const { grids } = Astro.props;
         </ul>
         <p class="mt-5 text-muted-foreground italic">Socials</p>
         <ul class="my-2">
-            <li>Github</li>
-            <li>Gitlab</li>
-            <li>Twitter</li>
+            {
+                socials.map((social) => (
+                    <li>
+                        <a href={social.url} class="hover:underline">
+                            {social.name}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </CardContent>
 </Card>
