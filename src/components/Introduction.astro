@@ -6,6 +6,8 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import BoxReveal from "@/components/ui/box-reveal";
+import { Image } from "astro:assets";
+import banner from "@/assets/banner.jpg";
 
 interface Props {
     grids: string;
@@ -18,13 +20,13 @@ const { grids } = Astro.props;
     <!-- 
         Artwork by Gracile https://www.gracile.jp/
     -->
-    <div
-        class="absolute inset-0 bg-cover bg-center blur-md md:blur-sm lg:blur-none"
-        style="background-image:url('/banner.webp');"
-    >
-    </div>
+    <Image
+        src={banner}
+        alt="Artwork by Gracile"
+        class="absolute blur-md md:blur-sm lg:blur-none lg:w-full lg:h-full object-center object-cover"
+    />
     <div class="right-0 bottom-0 absolute p-2 dark">
-        <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+        <BoxReveal client:idle boxColor={"#3B80A1"} duration={0.4}>
             <p
                 class="font-thin text-foreground text-xs lg:text-muted-foreground dark"
             >
@@ -40,14 +42,14 @@ const { grids } = Astro.props;
         <CardDescription
             className="md:block hidden font-thin text-foreground lg:text-muted-foreground dark"
         >
-            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <BoxReveal client:idle boxColor={"#3B80A1"} duration={0.4}>
                 <span>welcome</span>
             </BoxReveal>
         </CardDescription>
         <CardTitle
             className="!mt-0 md:!mt-1 font-extralight text-foreground text-pretty dark"
         >
-            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <BoxReveal client:idle boxColor={"#3B80A1"} duration={0.4}>
                 <h1 class="max-w-96">
                     Hi, I'm
                     <span class="font-semibold text-nowrap">Tahir Murata</span>,
