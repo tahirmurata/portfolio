@@ -1,17 +1,20 @@
 ---
 import {
     Card,
-    CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import BoxReveal from "@/components/ui/box-reveal";
+
+interface Props {
+    grids: string;
+}
+
+const { grids } = Astro.props;
 ---
 
-<Card
-    className="relative md:col-span-3 lg:col-span-3 md:row-span-2 lg:row-span-4 overflow-hidden"
->
+<Card className={`relative overflow-hidden ${grids}`}>
     <!-- 
         Artwork by Gracile https://www.gracile.jp/
     -->
@@ -21,30 +24,36 @@ import {
     >
     </div>
     <div class="right-0 bottom-0 absolute p-2 dark">
-        <p
-            class="font-thin text-foreground text-xs lg:text-muted-foreground dark"
-        >
-            Artwork by <a
-                class="underline"
-                href="https://www.gracile.jp"
-                target="_blank">Gracile</a
+        <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <p
+                class="font-thin text-foreground text-xs lg:text-muted-foreground dark"
             >
-        </p>
+                Artwork by <a
+                    class="underline"
+                    href="https://www.gracile.jp"
+                    target="_blank">Gracile</a
+                >
+            </p>
+        </BoxReveal>
     </div>
-    <CardHeader className="relative z-10">
+    <CardHeader className="relative z-10 mb-4">
         <CardDescription
-            className="font-thin text-foreground lg:text-muted-foreground dark"
+            className="md:block hidden font-thin text-foreground lg:text-muted-foreground dark"
         >
-            welcome
+            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+                <span>welcome</span>
+            </BoxReveal>
         </CardDescription>
         <CardTitle
-            className="flex flex-row mt-0 font-extralight text-foreground text-pretty dark"
+            className="!mt-0 md:!mt-1 font-extralight text-foreground text-pretty dark"
         >
-            <h1 class="max-w-96 basis-2/3">
-                Hi, I'm
-                <span class="font-semibold text-nowrap">Tahir Murata</span>, a
-                backend software developer based in Japan.
-            </h1>
+            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+                <h1 class="max-w-96">
+                    Hi, I'm
+                    <span class="font-semibold text-nowrap">Tahir Murata</span>,
+                    a backend software developer based in Japan.
+                </h1>
+            </BoxReveal>
         </CardTitle>
     </CardHeader>
 </Card>
