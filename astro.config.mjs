@@ -17,7 +17,7 @@ export default defineConfig({
   experimental: {
     env: {
       schema: {
-        GITHUB_SHA: envField.string({ context: "client", access: "public", optional: true }),
+        CF_PAGES_COMMIT_SHA: envField.string({ context: "client", access: "public", optional: true }),
       }
     }
   }

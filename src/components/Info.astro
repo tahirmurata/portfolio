@@ -5,7 +5,7 @@ import { CopyrightIcon } from "lucide-react";
 
 // Obtain the version and commit hash
 import { version } from "package.json";
-import { GITHUB_SHA } from "astro:env/client";
+import { CF_PAGES_COMMIT_SHA } from "astro:env/client";
 
 interface Props {
     grids: string;
@@ -22,7 +22,7 @@ const { grids } = Astro.props;
             <CopyrightIcon size={12} /> 2024 Tahir Murata
         </span>
         <span class="font-mono">
-            {version} ({(GITHUB_SHA ?? "development").substring(0, 7)})
+            {version} ({(CF_PAGES_COMMIT_SHA ?? "development").substring(0, 7)})
         </span>
     </div>
 </Card>
