@@ -1,0 +1,62 @@
+---
+import { Card } from "@/components/ui/card";
+import { Moon, Sun } from "lucide-react";
+
+interface Props {
+    grids: string;
+}
+
+const { grids } = Astro.props;
+---
+
+<script>
+    // Self-executing function to handle dark mode
+    (function () {
+        const toggle = document.querySelector("[data-theme-toggle]");
+        const root = document.documentElement;
+
+        // Get initial mode from localStorage or system preference
+        let isDark =
+            localStorage.getItem("theme") === "dark" ||
+            (!localStorage.getItem("theme") &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+        // Initialize dark mode
+        updateTheme();
+
+        // Listen for clicks
+        if (toggle)
+            toggle.addEventListener("click", () => {
+                isDark = !isDark;
+                updateTheme();
+            });
+
+        // Listen for system changes
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", (e) => {
+                isDark = e.matches;
+                updateTheme();
+            });
+
+        function updateTheme() {
+            root.classList[isDark ? "add" : "remove"]("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        }
+    })();
+</script>
+
+<Card
+    data-theme-toggle
+    className={`overflow-hidden hover:cursor-pointer hover:border-muted-foreground ${grids}`}
+>
+    <div
+        class="flex flex-col justify-center items-center gap-4 p-6 md:p-0 h-full"
+    >
+        <span class="sr-only">Toggle theme</span>
+        <div class="flex items-center">
+            <Sun className="dark:hidden size-7" />
+            <Moon className="dark:block hidden size-7" />
+        </div>
+    </div>
+</Card>
