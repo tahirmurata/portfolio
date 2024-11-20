@@ -24,7 +24,7 @@ const { grids } = Astro.props;
     >
     </div>
     <div class="right-0 bottom-0 absolute p-2 dark">
-        <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+        <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
             <p
                 class="font-thin text-foreground text-xs lg:text-muted-foreground dark"
             >
@@ -40,14 +40,14 @@ const { grids } = Astro.props;
         <CardDescription
             className="md:block hidden font-thin text-foreground lg:text-muted-foreground dark"
         >
-            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
                 <span>welcome</span>
             </BoxReveal>
         </CardDescription>
         <CardTitle
             className="!mt-0 md:!mt-1 font-extralight text-foreground text-pretty dark"
         >
-            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
                 <h1 class="max-w-96">
                     Hi, I'm
                     <span class="font-semibold text-nowrap">Tahir Murata</span>,
