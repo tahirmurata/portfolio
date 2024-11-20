@@ -1,0 +1,83 @@
+---
+import { Accordion } from "@/components/Accordion";
+import MinimalLayout from "@/layouts/MinimalLayout.astro";
+
+interface Project {
+    title: string;
+    description: string;
+    selected?: boolean;
+    links?: { name: string; url: string }[];
+}
+
+export const accordionData: Project[] = [
+    {
+        title: "F3S",
+        description:
+            "F3S is a system that simplifies tracking and managing purchases at food stalls during school festivals.",
+        links: [{ name: "Github", url: "https://github.com/f3sys" }],
+    },
+    {
+        title: "Vero",
+        description:
+            "The vero package generates random numbers for online casinos games such as dice, roll, crash, etc.",
+        links: [
+            { name: "Github", url: "https://github.com/pastc/vero" },
+            {
+                name: "Go Package",
+                url: "https://pkg.go.dev/github.com/pastc/vero/v2",
+            },
+        ],
+    },
+    {
+        title: "Petch",
+        description: "A pretty system information tool written in Go.",
+        links: [
+            { name: "Github", url: "https://github.com/pastc/petch" },
+            {
+                name: "Go Package",
+                url: "https://pkg.go.dev/github.com/pastc/petch",
+            },
+        ],
+    },
+];
+
+export function getStaticPaths() {
+    let paths = accordionData.map(({ title }) => ({
+        params: { project: title.toLowerCase() as string | undefined },
+    }));
+    paths.push({ params: { project: undefined } });
+    return paths;
+}
+---
+
+<!-- 
+    crumbs={[
+        { name: "Home", path: "/" },
+        {
+            name: "Projects",
+            ...(Astro.params.project ? { path: "/projects" } : {}),
+        },
+        ...(Astro.params.project ? [{ name: Astro.params.project }] : []),
+    ]}
+ -->
+<MinimalLayout
+    title="Projects"
+    crumbs={[
+        {
+            name: "Home",
+            path: "/",
+        },
+        {
+            name: "Projects",
+        },
+    ]}
+>
+    <Accordion
+        path="projects"
+        data={accordionData.map((project) => ({
+            ...project,
+            selected: project.title.toLowerCase() === Astro.params.project,
+        }))}
+        client:load
+    />
+</MinimalLayout>
