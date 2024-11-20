@@ -1,17 +1,19 @@
 ---
 import {
     Card,
-    CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+
+interface Props {
+    grids: string;
+}
+
+const { grids } = Astro.props;
 ---
 
-<Card
-    className="lg:col-start-4 md:row-span-7 lg:row-span-7 md:row-start-3 overflow-hidden"
->
+<Card className={`overflow-hidden ${grids}`}>
     <CardHeader>
         <CardTitle>About me</CardTitle>
         <CardDescription>
