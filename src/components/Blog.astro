@@ -40,13 +40,13 @@ const articles = [
                 className="transition-transform sm:group-hover:translate-x-1 sm:group-hover:-translate-y-1 duration-200 size-6"
             />
         </CardTitle>
-        <CardDescription>
-            <ul class="ml-5 text-foreground list-disc [&>li]:mt-2">
+        <CardDescription className="!mt-3">
+            <ul class="ml-5 text-foreground list-disc text-base [&>li]:mt-1">
                 {
-                    articles.map((project) => (
+                    articles.map((article) => (
                         <li>
-                            <a class="hover:underline" href={project.link}>
-                                {project.name}
+                            <a class="hover:underline" href={article.link}>
+                                {article.name}
                             </a>
                         </li>
                     ))
