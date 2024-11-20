@@ -7,6 +7,7 @@ interface Project {
     description: string;
     selected?: boolean;
     links?: { name: string; url: string }[];
+    tags?: string[];
 }
 
 export const accordionData: Project[] = [
@@ -15,6 +16,7 @@ export const accordionData: Project[] = [
         description:
             "F3S is a system that simplifies tracking and managing purchases at food stalls during school festivals.",
         links: [{ name: "Github", url: "https://github.com/f3sys" }],
+        tags: ["Go", "Vue", "PostgreSQL"],
     },
     {
         title: "Vero",
@@ -27,6 +29,7 @@ export const accordionData: Project[] = [
                 url: "https://pkg.go.dev/github.com/pastc/vero/v2",
             },
         ],
+        tags: ["Go"],
     },
     {
         title: "Petch",
@@ -38,6 +41,7 @@ export const accordionData: Project[] = [
                 url: "https://pkg.go.dev/github.com/pastc/petch",
             },
         ],
+        tags: ["Go"],
     },
 ];
 

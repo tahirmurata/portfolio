@@ -13,6 +13,7 @@ interface Props {
         description: string;
         selected?: boolean;
         links?: { name: string, url: string }[];
+        tags?: string[];
     }[];
 }
 
@@ -40,7 +41,16 @@ export function Accordion({ path, data }: Props) {
                             }
                         }}
                     >
-                        <AccordionTrigger>{item.title}</AccordionTrigger>
+                        <AccordionTrigger tags={item.tags}>
+                            {/* <div className="flex flex-row gap-x-2">
+                                <span className="mr-4"> */}
+                            {item.title}
+                            {/* </span> */}
+                            {/* {item.tags && item.tags.map((tag, i) => (
+                                <Badge className="hover:no-underline" key={i} variant="outline">{tag}</Badge>
+                            ))} */}
+                            {/* </div> */}
+                        </AccordionTrigger>
                         <AccordionContent className="flex flex-col gap-2">
                             <p className="text-muted-foreground text-pretty">
                                 {item.description}

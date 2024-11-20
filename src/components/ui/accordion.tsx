@@ -4,6 +4,8 @@ import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+import { Badge } from "@/components/ui/badge"
+
 const Accordion = AccordionPrimitive.Root
 
 const AccordionItem = React.forwardRef<
@@ -20,18 +22,27 @@ AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & { tags?: string[] }
+>(({ className, children, tags, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center sm:px-2 justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+        "flex flex-1 items-center sm:px-2 justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 group",
         className
       )}
       {...props}
     >
-      {children}
+      <div className="flex flex-row gap-x-5">
+        <span className="group-hover:underline">{children}</span>
+        {tags && tags.length > 0 && (
+          <div className="flex space-x-2">
+            {tags.map((tag, index) => (
+              <Badge className="hover:no-underline" key={index} variant="outline">{tag}</Badge>
+            ))}
+          </div>
+        )}
+      </div>
       <ChevronDown className="w-4 h-4 transition-transform duration-200 shrink-0" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
