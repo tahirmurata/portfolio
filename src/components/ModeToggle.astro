@@ -1,6 +1,6 @@
 ---
 import { Card } from "@/components/ui/card";
-import { Circle, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 interface Props {
     grids: string;
@@ -8,51 +8,6 @@ interface Props {
 
 const { grids } = Astro.props;
 ---
-
-<script>
-    (function () {
-        const toggle = document.querySelector<HTMLElement>(
-            "[data-theme-toggle]",
-        );
-        const root = document.documentElement;
-
-        // Get initial theme - check localStorage first, then system preference
-        const getInitialTheme = (): boolean => {
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                return savedTheme === "dark";
-            }
-            // return window.matchMedia("(prefers-color-scheme: dark)").matches;
-            // Default to dark theme
-            return true;
-        };
-
-        let isDark = getInitialTheme();
-
-        // Apply theme immediately to avoid flash
-        updateTheme();
-
-        // Toggle theme on click
-        if (toggle) {
-            toggle.addEventListener("click", () => {
-                isDark = !isDark;
-                updateTheme();
-            });
-        }
-
-        // Sync with system theme changes
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        mediaQuery.addEventListener("change", (e) => {
-            isDark = e.matches;
-            updateTheme();
-        });
-
-        function updateTheme(): void {
-            root.classList[isDark ? "add" : "remove"]("dark");
-            localStorage.setItem("theme", isDark ? "dark" : "light");
-        }
-    })();
-</script>
 
 <Card
     data-theme-toggle
@@ -62,16 +17,14 @@ const { grids } = Astro.props;
         class="flex flex-col justify-center items-center gap-4 p-6 md:p-0 h-full"
     >
         <span class="sr-only">Toggle theme</span>
-        <div class="relative flex items-center">
-            <div class="relative flex size-8">
-                <Sun
-                    className="absolute inset-0 dark:opacity-0 transition-all duration-200 rotate-90 size-8 dark:rotate-0"
-                    fill="currentColor"
-                />
-                <Moon
-                    className="absolute inset-0 opacity-0 dark:opacity-100 transition-all duration-200 rotate-90 dark:rotate-0 size-8"
-                />
-            </div>
+        <div class="relative flex size-8">
+            <Sun
+                className="absolute inset-0 dark:opacity-0 transition-all duration-200 rotate-90 size-8 dark:rotate-0"
+                fill="currentColor"
+            />
+            <Moon
+                className="absolute inset-0 opacity-0 dark:opacity-100 transition-all duration-200 rotate-90 dark:rotate-0 size-8"
+            />
         </div>
-    </div></Card
->
+    </div>
+</Card>
