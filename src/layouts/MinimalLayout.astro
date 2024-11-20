@@ -1,0 +1,55 @@
+---
+import MinimalModeToggle from "@/components/MinimalModeToggle.astro";
+import Layout from "@/layouts/Layout.astro";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
+interface Props {
+    title: string;
+    crumbs: { name: string; path?: string }[];
+}
+
+const { title, crumbs } = Astro.props;
+---
+
+<Layout title={title}>
+    <main class="flex flex-col m-auto p-10 w-full max-w-xl">
+        <div class="flex flex-row justify-between">
+            <Breadcrumb>
+                <BreadcrumbList>
+                    {
+                        crumbs.map(({ name, path }, index) => (
+                            <>
+                                <BreadcrumbItem>
+                                    {!path ? (
+                                        <BreadcrumbPage>{name}</BreadcrumbPage>
+                                    ) : (
+                                        <BreadcrumbLink href={path}>
+                                            {name}
+                                        </BreadcrumbLink>
+                                    )}
+                                </BreadcrumbItem>
+                                {path && <BreadcrumbSeparator />}
+                            </>
+                        ))
+                    }
+                </BreadcrumbList>
+            </Breadcrumb>
+        </div>
+        <div class="flex flex-col gap-4 mt-4">
+            <h2
+                class="scroll-m-20 first:mt-0 pb-2 border-b font-semibold text-3xl tracking-tight"
+            >
+                {title}
+            </h2>
+        </div>
+        <slot />
+    </main>
+    <MinimalModeToggle />
+</Layout>
