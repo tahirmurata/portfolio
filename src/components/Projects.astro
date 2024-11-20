@@ -37,7 +37,7 @@ const projects = [
         <CardTitle className="flex flex-row justify-between">
             <span class="text-xl">Projects</span>
             <ArrowUpRight
-                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-200 size-6"
+                className="transition-transform sm:group-hover:translate-x-1 sm:group-hover:-translate-y-1 duration-200 size-6"
             />
         </CardTitle>
         <CardDescription>
@@ -69,7 +69,7 @@ const projects = [
         });
 
         // Add click handler to card
-        projectCard.addEventListener("click", (e) => {
+        projectCard.addEventListener("click", (_) => {
             window.location.href = "/projects";
         });
     }
