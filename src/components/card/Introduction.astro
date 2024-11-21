@@ -27,7 +27,7 @@ const { grids } = Astro.props;
         loading={"eager"}
     />
     <div class="right-0 bottom-0 absolute p-2 dark">
-        <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+        <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
             <p
                 class="font-thin text-foreground text-xs lg:text-muted-foreground dark"
             >
@@ -38,25 +38,40 @@ const { grids } = Astro.props;
                 >
             </p>
         </BoxReveal>
+        <p
+            class="block md:hidden font-thin text-foreground text-xs lg:text-muted-foreground dark"
+        >
+            Artwork by <a
+                class="underline"
+                href="https://www.gracile.jp"
+                target="_blank">Gracile</a
+            >
+        </p>
     </div>
     <CardHeader className="relative z-10 mb-4">
         <CardDescription
             className="md:block hidden font-thin text-foreground lg:text-muted-foreground dark"
         >
-            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
                 <span>welcome</span>
             </BoxReveal>
+            <span class="block md:hidden">welcome</span>
         </CardDescription>
         <CardTitle
             className="!mt-0 md:!mt-1 w-2/3 md:w-1/2 font-extralight text-foreground text-pretty leading-7 dark"
         >
-            <BoxReveal client:load boxColor={"#3B80A1"} duration={0.4}>
+            <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
                 <h1>
                     Hi, I'm
                     <span class="font-semibold text-nowrap">Tahir Murata</span>,
                     a backend software developer based in Japan.
                 </h1>
             </BoxReveal>
+            <h1 class="block md:hidden">
+                Hi, I'm
+                <span class="font-semibold text-nowrap">Tahir Murata</span>, a
+                backend software developer based in Japan.
+            </h1>
         </CardTitle>
     </CardHeader>
 </Card>

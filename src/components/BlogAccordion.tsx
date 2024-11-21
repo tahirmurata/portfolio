@@ -42,7 +42,7 @@ export function Accordion({ path, data }: Props) {
                             <button
                                 className="flex flex-1 items-center sm:px-2 justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 group"
                             >
-                                <span className="group-hover:underline">
+                                <span className="sm:group-hover:underline">
                                     {item.data.title}
                                 </span>
                                 {item.data.tags && item.data.tags.length > 0 && (

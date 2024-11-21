@@ -34,7 +34,7 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       <div className="flex flex-row gap-x-5">
-        <span className="group-hover:underline">{children}</span>
+        <span className="sm:group-hover:underline">{children}</span>
         {tags && tags.length > 0 && (
           <div className="flex space-x-2">
             {tags.sort().map((tag, index) => (
