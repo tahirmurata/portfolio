@@ -20,7 +20,9 @@ interface Props {
 export function Accordion({ path, data }: Props) {
     return (
         <BaseAccordion className="w-full" type="single"
-            defaultValue={data.findIndex(item => item.selected) !== -1 ? `item-${data.findIndex(item => item.selected)}` : undefined}
+            {...(data.findIndex(item => item.selected) !== -1 && {
+                defaultValue: `item-${data.findIndex(item => item.selected)}`
+            })}
             collapsible
         >
             {data.map((item, i) => {
@@ -42,14 +44,7 @@ export function Accordion({ path, data }: Props) {
                         }}
                     >
                         <AccordionTrigger tags={item.tags}>
-                            {/* <div className="flex flex-row gap-x-2">
-                                <span className="mr-4"> */}
                             {item.title}
-                            {/* </span> */}
-                            {/* {item.tags && item.tags.map((tag, i) => (
-                                <Badge className="hover:no-underline" key={i} variant="outline">{tag}</Badge>
-                            ))} */}
-                            {/* </div> */}
                         </AccordionTrigger>
                         <AccordionContent className="flex flex-col gap-2">
                             <p className="text-muted-foreground text-pretty">

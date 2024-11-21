@@ -22,7 +22,7 @@ AccordionItem.displayName = "AccordionItem"
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & { tags?: string[] }
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & { tags: string[] | undefined }
 >(({ className, children, tags, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
@@ -37,7 +37,7 @@ const AccordionTrigger = React.forwardRef<
         <span className="group-hover:underline">{children}</span>
         {tags && tags.length > 0 && (
           <div className="flex space-x-2">
-            {tags.map((tag, index) => (
+            {tags.sort().map((tag, index) => (
               <Badge className="hover:no-underline" key={index} variant="outline">{tag}</Badge>
             ))}
           </div>

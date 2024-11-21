@@ -24,7 +24,7 @@ const { title, crumbs } = Astro.props;
             <Breadcrumb>
                 <BreadcrumbList>
                     {
-                        crumbs.map(({ name, path }, index) => (
+                        crumbs.map(({ name, path }) => (
                             <>
                                 <BreadcrumbItem>
                                     {!path ? (
