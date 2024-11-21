@@ -1,57 +1,26 @@
 ---
 import { Accordion } from "@/components/Accordion";
 import MinimalLayout from "@/layouts/MinimalLayout.astro";
+import { getCollection } from "astro:content";
 
-interface Project {
-    title: string;
-    description: string;
-    selected?: boolean;
-    links?: { name: string; url: string }[];
-    tags?: string[];
-}
-
-export const accordionData: Project[] = [
-    {
-        title: "F3S",
-        description:
-            "F3S is a system that simplifies tracking and managing purchases at food stalls during school festivals.",
-        links: [{ name: "Github", url: "https://github.com/f3sys" }],
-        tags: ["Go", "Vue", "PostgreSQL"],
-    },
-    {
-        title: "Vero",
-        description:
-            "The vero package generates random numbers for online casinos games such as dice, roll, crash, etc.",
-        links: [
-            { name: "Github", url: "https://github.com/pastc/vero" },
-            {
-                name: "Go Package",
-                url: "https://pkg.go.dev/github.com/pastc/vero/v2",
-            },
-        ],
-        tags: ["Go"],
-    },
-    {
-        title: "Petch",
-        description: "A pretty system information tool written in Go.",
-        links: [
-            { name: "Github", url: "https://github.com/pastc/petch" },
-            {
-                name: "Go Package",
-                url: "https://pkg.go.dev/github.com/pastc/petch",
-            },
-        ],
-        tags: ["Go"],
-    },
-];
-
-export function getStaticPaths() {
-    let paths = accordionData.map(({ title }) => ({
-        params: { project: title.toLowerCase() as string | undefined },
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    let paths = projects.map((project) => ({
+        params: {
+            project: project.data.title.toLowerCase() as string | undefined,
+        },
+        props: { projects },
     }));
-    paths.push({ params: { project: undefined } });
+
+    paths.push({
+        params: { project: undefined },
+        props: { projects },
+    });
+
     return paths;
 }
+
+const { projects } = Astro.props;
 ---
 
 <!-- 
@@ -78,9 +47,9 @@ export function getStaticPaths() {
 >
     <Accordion
         path="projects"
-        data={accordionData.map((project) => ({
+        data={projects.map((project) => ({
             ...project,
-            selected: project.title.toLowerCase() === Astro.params.project,
+            selected: project.id === Astro.params.project,
         }))}
         client:load
     />

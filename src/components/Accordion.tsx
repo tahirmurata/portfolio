@@ -5,16 +5,18 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button"
+import type { InferEntrySchema } from "astro:content";
+
+type Project = {
+    id: string;
+    collection: "projects";
+    data: InferEntrySchema<"projects">;
+    selected: boolean;
+}
 
 interface Props {
     path: string;
-    data: {
-        title: string;
-        description: string;
-        selected?: boolean;
-        links?: { name: string, url: string }[];
-        tags?: string[];
-    }[];
+    data: Project[];
 }
 
 export function Accordion({ path, data }: Props) {
@@ -35,7 +37,7 @@ export function Accordion({ path, data }: Props) {
                         value={`item-${i.toFixed()}`}
                         onClick={(_) => {
                             const currentPath = window.location.pathname.toLowerCase();
-                            const itemPath = `/${path}/${item.title.toLowerCase()}`;
+                            const itemPath = `/${path}/${item.data.title.toLowerCase()}`;
                             if (currentPath === itemPath) {
                                 window.history.replaceState("", "", `/${path}`);
                             } else {
@@ -43,18 +45,18 @@ export function Accordion({ path, data }: Props) {
                             }
                         }}
                     >
-                        <AccordionTrigger tags={item.tags}>
-                            {item.title}
+                        <AccordionTrigger tags={item.data.tags}>
+                            {item.data.title}
                         </AccordionTrigger>
                         <AccordionContent className="flex flex-col gap-2">
                             <p className="text-muted-foreground text-pretty">
-                                {item.description}
+                                {item.data.description}
                             </p>
                             <div className="ml-auto max-w-fit">
-                                {item.links && item.links.map((link, i) => (
+                                {item.data.links && item.data.links.map((link, i) => (
                                     <Button key={i} variant="link" onClick={(e) => {
                                         e.preventDefault();
-                                        window.open(link.url);
+                                        window.open(link.url, "_blank");
                                     }}>{link.name}</Button>
                                 ))}
                             </div>

@@ -5,6 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { getCollection } from "astro:content";
 import { ArrowUpRight } from "lucide-react";
 
 interface Props {
@@ -13,20 +14,7 @@ interface Props {
 
 const { grids } = Astro.props;
 
-const articles = [
-    {
-        name: "Article 1",
-        link: "/blog/1",
-    },
-    {
-        name: "Article 2",
-        link: "/blog/2",
-    },
-    {
-        name: "Article 3",
-        link: "/blog/3",
-    },
-];
+const blog = await getCollection("blog");
 ---
 
 <Card
@@ -43,10 +31,13 @@ const articles = [
         <CardDescription className="!mt-3">
             <ul class="ml-5 text-foreground list-disc text-base [&>li]:mt-1">
                 {
-                    articles.map((article) => (
+                    blog.slice(0, 5).map((post) => (
                         <li>
-                            <a class="hover:underline" href={article.link}>
-                                {article.name}
+                            <a
+                                class="hover:underline"
+                                href={`/blog/${post.data.slug}`}
+                            >
+                                {post.data.title}
                             </a>
                         </li>
                     ))
@@ -57,9 +48,11 @@ const articles = [
 </Card>
 
 <script>
-    const projectCard = document.getElementById("blog_card");
-    if (projectCard) {
-        const links = projectCard.getElementsByTagName("a");
+    import { prefetch } from "astro:prefetch";
+
+    const blogCard = document.getElementById("blog_card");
+    if (blogCard) {
+        const links = blogCard.getElementsByTagName("a");
 
         // Add click handlers to all links to prevent event bubbling
         Array.from(links).forEach((link) => {
@@ -68,8 +61,13 @@ const articles = [
             });
         });
 
-        // Add click handler to card
-        projectCard.addEventListener("click", (_) => {
+        // Prefetch on hover
+        blogCard.addEventListener("mouseenter", () => {
+            prefetch("/blog");
+        });
+
+        // Navigate on click
+        blogCard.addEventListener("click", () => {
             window.location.href = "/blog";
         });
     }

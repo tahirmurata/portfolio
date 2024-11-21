@@ -1,0 +1,49 @@
+---
+import { Accordion } from "@/components/BlogAccordion";
+import MinimalLayout from "@/layouts/MinimalLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const blog = await getCollection("blog");
+    let paths = blog.map((post) => ({
+        params: {
+            post: post.data.slug.toLowerCase() as string | undefined,
+        },
+        props: post.data.slug ? { blog, post } : { blog },
+    }));
+    paths.push({
+        params: { post: undefined },
+        props: { blog },
+    });
+    return paths;
+}
+
+const { blog, post } = Astro.props;
+---
+
+<MinimalLayout
+    title={post ? post.data.title : "Blog"}
+    crumbs={[
+        { name: "Home", path: "/" },
+        {
+            name: "Blog",
+            ...(post ? { path: "/blog" } : {}),
+        },
+        ...(post ? [{ name: post.data.title }] : []),
+    ]}
+>
+    {
+        (!post && (
+            <Accordion
+                client:load
+                path="blog"
+                data={blog.map((post) => ({
+                    ...post,
+                    selected:
+                        post.data.slug.toLowerCase() === Astro.params.post,
+                }))}
+            />
+        )) ||
+            (post && <>{post.body}</>)
+    }
+</MinimalLayout>
