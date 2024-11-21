@@ -57,6 +57,8 @@ const projects = [
 </Card>
 
 <script>
+    import { prefetch } from "astro:prefetch";
+
     const projectCard = document.getElementById("project_card");
     if (projectCard) {
         const links = projectCard.getElementsByTagName("a");
@@ -68,8 +70,13 @@ const projects = [
             });
         });
 
-        // Add click handler to card
-        projectCard.addEventListener("click", (_) => {
+        // Prefetch on hover
+        projectCard.addEventListener("mouseenter", () => {
+            prefetch("/projects");
+        });
+
+        // Navigate on click
+        projectCard.addEventListener("click", () => {
             window.location.href = "/projects";
         });
     }
