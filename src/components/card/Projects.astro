@@ -56,19 +56,19 @@ const projects = await getCollection("projects");
 
         // Add click handlers to all links to prevent event bubbling
         Array.from(links).forEach((link) => {
-            link.addEventListener("click", (e) => {
+            link.onclick = (e) => {
                 e.stopPropagation();
-            });
+            };
         });
 
         // Prefetch on hover
-        projectCard.addEventListener("mouseenter", () => {
+        projectCard.onmouseenter = () => {
             prefetch("/projects/");
-        });
+        };
 
         // Navigate on click
-        projectCard.addEventListener("click", () => {
+        projectCard.onclick = () => {
             window.location.href = "/projects/";
-        });
+        };
     }
 </script>

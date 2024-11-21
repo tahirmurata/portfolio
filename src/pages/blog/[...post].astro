@@ -27,7 +27,7 @@ const { blog, post } = Astro.props;
         { name: "Home", path: "/" },
         {
             name: "Blog",
-            ...(post ? { path: "/blog" } : {}),
+            ...(post ? { path: "/blog/" } : {}),
         },
         ...(post ? [{ name: post.data.title }] : []),
     ]}

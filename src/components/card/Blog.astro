@@ -56,19 +56,19 @@ const blog = await getCollection("blog");
 
         // Add click handlers to all links to prevent event bubbling
         Array.from(links).forEach((link) => {
-            link.addEventListener("click", (e) => {
+            link.onclick = (e) => {
                 e.stopPropagation();
-            });
+            };
         });
 
         // Prefetch on hover
-        blogCard.addEventListener("mouseenter", () => {
+        blogCard.onmouseenter = () => {
             prefetch("/blog/");
-        });
+        };
 
         // Navigate on click
-        blogCard.addEventListener("click", () => {
+        blogCard.onclick = () => {
             window.location.href = "/blog/";
-        });
+        };
     }
 </script>

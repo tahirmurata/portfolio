@@ -11,6 +11,7 @@ export default defineConfig({
     prefetchAll: true
   },
   site: "https://muratahir.com",
+  trailingSlash: 'always',
   integrations: [
     tailwind({
       applyBaseStyles: false,

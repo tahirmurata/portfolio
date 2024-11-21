@@ -41,7 +41,7 @@ export function Accordion({ path, data }: Props) {
                             if (currentPath === itemPath) {
                                 window.history.replaceState("", "", `/${path}/`);
                             } else {
-                                window.history.replaceState("", "", itemPath);
+                                window.history.replaceState("", "", `${itemPath}/`);
                             }
                         }}
                     >
