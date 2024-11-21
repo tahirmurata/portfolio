@@ -17,11 +17,9 @@ export default defineConfig({
     }),
     react()
   ],
-  experimental: {
-    env: {
-      schema: {
-        CF_PAGES_COMMIT_SHA: envField.string({ context: "client", access: "public", optional: true }),
-      }
+  env: {
+    schema: {
+      CF_PAGES_COMMIT_SHA: envField.string({ context: "client", access: "public", optional: true, default: "development" }),
     }
   }
 });
