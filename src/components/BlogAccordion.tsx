@@ -35,7 +35,7 @@ export function Accordion({ path, data }: Props) {
                         } : undefined}
                         key={`item-${i.toFixed()}`}
                         onClick={(_) => {
-                            window.location.href = `/${path}/${item.data.slug.toLowerCase()}`;
+                            window.location.href = `/${path}/${item.data.slug.toLowerCase()}/`;
                         }}
                     >
                         <div className="flex">

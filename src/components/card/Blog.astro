@@ -35,7 +35,7 @@ const blog = await getCollection("blog");
                         <li>
                             <a
                                 class="hover:underline"
-                                href={`/blog/${post.data.slug}`}
+                                href={`/blog/${post.data.slug}/`}
                             >
                                 {post.data.title}
                             </a>
@@ -63,12 +63,12 @@ const blog = await getCollection("blog");
 
         // Prefetch on hover
         blogCard.addEventListener("mouseenter", () => {
-            prefetch("/blog");
+            prefetch("/blog/");
         });
 
         // Navigate on click
         blogCard.addEventListener("click", () => {
-            window.location.href = "/blog";
+            window.location.href = "/blog/";
         });
     }
 </script>

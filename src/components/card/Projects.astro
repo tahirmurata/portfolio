@@ -35,7 +35,7 @@ const projects = await getCollection("projects");
                         <li>
                             <a
                                 class="hover:underline"
-                                href={`/projects/${project.id}`}
+                                href={`/projects/${project.id}/`}
                             >
                                 {project.data.title}
                             </a>
@@ -63,12 +63,12 @@ const projects = await getCollection("projects");
 
         // Prefetch on hover
         projectCard.addEventListener("mouseenter", () => {
-            prefetch("/projects");
+            prefetch("/projects/");
         });
 
         // Navigate on click
         projectCard.addEventListener("click", () => {
-            window.location.href = "/projects";
+            window.location.href = "/projects/";
         });
     }
 </script>
