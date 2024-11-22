@@ -6,7 +6,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import BoxReveal from "@/components/ui/box-reveal";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import banner from "@/assets/banner.jpg";
 
 interface Props {
@@ -20,11 +20,11 @@ const { grids } = Astro.props;
     <!-- 
         Artwork by Gracile https://www.gracile.jp/
     -->
-    <Image
+    <Picture
         src={banner}
-        alt="Artwork by Gracile"
+        formats={["avif", "webp"]}
+        alt=""
         class="absolute inset-0 blur-md md:blur-sm lg:blur-none w-full h-full object-center object-cover"
-        loading={"eager"}
     />
     <div class="right-0 bottom-0 absolute p-2 dark">
         <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>
