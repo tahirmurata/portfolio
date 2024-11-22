@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 import tailwind from '@astrojs/tailwind';
 
@@ -13,6 +14,10 @@ export default defineConfig({
   site: "https://muratahir.com",
   trailingSlash: 'always',
   integrations: [
+    sitemap({
+      changefreq: "weekly",
+      lastmod: new Date(),
+    }),
     tailwind({
       applyBaseStyles: false,
     }),
