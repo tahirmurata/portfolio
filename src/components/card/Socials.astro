@@ -31,7 +31,7 @@ const socials = [
         <p class="text-muted-foreground italic">Email</p>
         <ul class="my-2">
             <li>
-                <a id="c921587" class="text-muted-foreground">
+                <a id="email" class="text-muted-foreground">
                     Enable Javascript
                 </a>
             </li>
@@ -60,17 +60,17 @@ const socials = [
     );
     const chacha = managedNonce(xchacha20poly1305)(key);
     const ciphertext = new Uint8Array([
-        212, 50, 71, 22, 48, 56, 136, 31, 121, 240, 252, 128, 165, 92, 101, 119,
-        227, 213, 83, 68, 124, 31, 220, 155, 59, 84, 10, 254, 234, 236, 154, 70,
-        140, 93, 182, 62, 63, 28, 96, 28, 143, 77, 157, 64, 48, 27, 211, 71, 63,
-        195, 115, 124, 250, 127, 116, 59, 158, 13, 129, 223, 208,
+        36, 38, 111, 87, 217, 20, 230, 166, 117, 220, 17, 147, 52, 124, 11, 140,
+        115, 216, 142, 67, 15, 87, 105, 18, 33, 50, 2, 2, 64, 176, 249, 135, 85,
+        13, 216, 186, 77, 94, 68, 115, 153, 193, 211, 76, 151, 64, 148, 207,
+        205, 164, 61, 213, 22, 90, 195, 237, 103, 109, 255, 116, 236, 59, 74,
+        181, 22, 203, 138, 110,
     ]);
     const data_ = chacha.decrypt(ciphertext);
-    const a = document.querySelector("#c921587");
-    if (a && a instanceof HTMLAnchorElement) {
-        a.href = `mailto:${bytesToUtf8(data_)}`;
-        a.textContent = bytesToUtf8(data_);
-        a.classList.remove("text-muted-foreground");
-        a.classList.add("hover:underline");
-    }
+
+    const a = document.querySelector("#email") as HTMLAnchorElement;
+    a.href = `${bytesToUtf8(data_)}`;
+    a.textContent = bytesToUtf8(data_).split("mailto:")[1]!;
+    a.classList.remove("text-muted-foreground");
+    a.classList.add("hover:underline");
 </script>
