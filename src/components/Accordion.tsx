@@ -37,11 +37,11 @@ export function Accordion({ path, data }: Props) {
                         value={`item-${i.toFixed()}`}
                         onClick={(_) => {
                             const currentPath = window.location.pathname.toLowerCase();
-                            const itemPath = `/${path}/${item.data.title.toLowerCase()}`;
+                            const itemPath = `/${path}/${item.data.title.toLowerCase()}/`;
                             if (currentPath === itemPath) {
                                 window.history.replaceState("", "", `/${path}/`);
                             } else {
-                                window.history.replaceState("", "", `${itemPath}/`);
+                                window.history.replaceState("", "", `${itemPath}`);
                             }
                         }}
                     >
