@@ -31,7 +31,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="I'm a developer based in Japan who likes Golang."
+			content="I'm a backend software developer based in Japan."
 		/>
 		<title>
 			{title === "Tahir Murata" ? title : `${title} | Tahir Murata`}
@@ -43,42 +43,38 @@ const { title } = Astro.props;
 </html>
 
 <script is:inline>
-	(function () {
-		const toggle = document.querySelector("[data-theme-toggle]");
-		const root = document.documentElement;
+	const toggle = document.querySelector("[data-theme-toggle]");
+	const root = document.documentElement;
 
-		// Get initial theme - check localStorage first, then system preference
-		const getInitialTheme = () => {
-			const savedTheme = localStorage.getItem("theme");
-			if (savedTheme) {
-				return savedTheme === "dark";
-			}
-			return window.matchMedia("(prefers-color-scheme: dark)").matches;
-		};
+	// Get initial theme - check localStorage first, then system preference
+	const getInitialTheme = () => {
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme) {
+			return savedTheme === "dark";
+		}
+		return window.matchMedia("(prefers-color-scheme: dark)").matches;
+	};
 
-		let isDark = getInitialTheme();
+	let isDark = getInitialTheme();
 
-		// Apply theme immediately to avoid flash
+	// Apply theme immediately to avoid flash
+	updateTheme();
+
+	// Toggle theme on click
+	toggle.addEventListener("click", () => {
+		isDark = !isDark;
 		updateTheme();
+	});
 
-		// Toggle theme on click
-		if (toggle) {
-			toggle.addEventListener("click", () => {
-				isDark = !isDark;
-				updateTheme();
-			});
-		}
+	// Sync with system theme changes
+	const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+	mediaQuery.onchange = (e) => {
+		isDark = e.matches;
+		updateTheme();
+	};
 
-		// Sync with system theme changes
-		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-		mediaQuery.addEventListener("change", (e) => {
-			isDark = e.matches;
-			updateTheme();
-		});
-
-		function updateTheme() {
-			root.classList[isDark ? "add" : "remove"]("dark");
-			localStorage.setItem("theme", isDark ? "dark" : "light");
-		}
-	})();
+	function updateTheme() {
+		root.classList[isDark ? "add" : "remove"]("dark");
+		localStorage.setItem("theme", isDark ? "dark" : "light");
+	}
 </script>
