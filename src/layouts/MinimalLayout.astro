@@ -13,7 +13,7 @@ import {
 interface Props {
     title: string;
     crumbs: { name: string; path?: string }[];
-    date: Date | undefined;
+    date?: Date | undefined;
 }
 
 const { title, crumbs, date } = Astro.props;
