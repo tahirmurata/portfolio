@@ -128,11 +128,13 @@ There are many more features in wgo such as running commands in different direct
 
 ## Who is it for?
 
-wgo is a lightweight file watching utility designed for developers who prefer:
-- Simple, configuration-free setup
-- Quick implementation without complex tooling
-- Minimal overhead for live-reloading workflows
-- Parallel command execution capabilities
-- Command chaining support for complex workflows
+wgo is a simple file watcher that's great for developers who want to:
+- Get started quickly without configuration
+- Use across different programming languages
+- Run multiple commands at once
+- Keep their development workflow simple
 
-Ultimately, wgo is for developers who want to focus on writing code, not configuring tools.
+If that sounds useful for your needs, give wgo a try. The tool is intentionally minimal and focused on doing one thing well - watching files and running commands when they change.
+
+## Resources
+- [GitHub Repository](https://github.com/bokwoon95/wgo)
