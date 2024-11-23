@@ -64,12 +64,12 @@ All this just to get live reloading. And it doesn't even support parallel execut
 
 ### Enter wgo
 
-wgo is a minimalist live reloading tool that works with any programming language. Built with simplicity in mind, the entire codebase consists of just two files: `main.go` and `wgo_cmd.go`. You can explore the complete source code [here](https://github.com/bokwoon95/wgo/blob/main/START_HERE.md).
+wgo is a minimalist live reloading tool by bokwoon95 that works with any programming language. Built with simplicity in mind, the entire codebase consists of just two files: `main.go` and `wgo_cmd.go`. You can explore the complete source code [here](https://github.com/bokwoon95/wgo/blob/main/START_HERE.md).
 
 
 ## How to use wgo
 
-Using wgo is so straightforward, you already know how to use it. Just slap the command in front of any command to run it with live reloading.
+Using wgo is so straightforward, you already know how to use it. Just add the command in front of any command to run it with live reloading.
 
 ```bash
 # Run gcc.
@@ -96,7 +96,7 @@ That's it. No config files, no wrapping commands in strings, no garbage in the c
 
 ## What else can wgo do?
 
-wgo is designed to be simple, yet powerful. It supports command chaining, so you can run multiple commands in sequence. Just separate each command with a `::`.
+wgo also supports command chaining, so you can run multiple commands in sequence. Just separate each command with a `::`.
 
 ```bash
 # Run gcc and then run the compiled binary.
@@ -124,7 +124,7 @@ $ wgo run main.go \
   :: wgo -file .ts tsc 'assets/*.ts' --outfile assets/index.js
 ```
 
-There are many more features in wgo such as running commands in different directories, file and directory inclusion/exclusion, and exiting when the last command exits. You can read the full documentation [here](https://github.com/bokwoon95/wgo/blob/main/README.md).
+There are many more features in wgo like running commands in different directories, file and directory inclusion/exclusion, and exiting when the last command exits. You can read the full documentation [here](https://github.com/bokwoon95/wgo/blob/main/README.md).
 
 ## Who is it for?
 
@@ -134,7 +134,7 @@ wgo is a simple file watcher that's great for developers who want to:
 - Run multiple commands at once
 - Keep their development workflow simple
 
-If that sounds useful for your needs, give wgo a try. The tool is intentionally minimal and focused on doing one thing well - watching files and running commands when they change.
+If that sounds useful for your needs, give wgo a try. The tool is intentionally minimal and focuses on doing one thing well - watching files and running commands when they change.
 
 ## Resources
 - [GitHub Repository](https://github.com/bokwoon95/wgo)
