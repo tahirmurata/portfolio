@@ -45,7 +45,7 @@ if (post) {
         },
         ...(post ? [{ name: post.data.title }] : []),
     ]}
-    date={post ? post.data.date : undefined}
+    date={post && post.data.date}
 >
     {
         (!post && (
