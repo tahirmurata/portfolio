@@ -13,43 +13,68 @@ import {
 interface Props {
     title: string;
     crumbs: { name: string; path?: string }[];
+    date?: Date;
 }
 
-const { title, crumbs } = Astro.props;
+const { title, crumbs, date } = Astro.props;
 ---
 
 <Layout title={title}>
-    <main class="flex flex-col m-auto p-10 w-full max-w-xl">
-        <div class="flex flex-row justify-between">
-            <Breadcrumb>
-                <BreadcrumbList>
+    <main>
+        <div class="flex flex-col m-auto p-5 md:pt-10 w-full max-w-2xl">
+            <div class="flex flex-col gap-y-5">
+                <div class="flex flex-row justify-between">
+                    <Breadcrumb>
+                        <BreadcrumbList>
+                            {
+                                crumbs.map(({ name, path }) => (
+                                    <>
+                                        <BreadcrumbItem>
+                                            {!path ? (
+                                                <BreadcrumbPage>
+                                                    {name}
+                                                </BreadcrumbPage>
+                                            ) : (
+                                                <BreadcrumbLink href={path}>
+                                                    {name}
+                                                </BreadcrumbLink>
+                                            )}
+                                        </BreadcrumbItem>
+                                        {path && <BreadcrumbSeparator />}
+                                    </>
+                                ))
+                            }
+                        </BreadcrumbList>
+                    </Breadcrumb>
+                    <MinimalModeToggle />
+                </div>
+                <div class="flex flex-col gap-y-2">
                     {
-                        crumbs.map(({ name, path }) => (
-                            <>
-                                <BreadcrumbItem>
-                                    {!path ? (
-                                        <BreadcrumbPage>{name}</BreadcrumbPage>
-                                    ) : (
-                                        <BreadcrumbLink href={path}>
-                                            {name}
-                                        </BreadcrumbLink>
-                                    )}
-                                </BreadcrumbItem>
-                                {path && <BreadcrumbSeparator />}
-                            </>
-                        ))
+                        date ? (
+                            <span class="text-muted-foreground text-sm">
+                                Published on{" "}
+                                {date.toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </span>
+                            <h1
+                                class="scroll-m-20 font-bold text-3xl lg:text-4xl tracking-tight"
+                            >
+                                {title}
+                            </h1>
+                        ) : (                    
+                            <h1
+                                class="scroll-m-20 first:mt-0 pb-2 border-b font-semibold text-3xl tracking-tight"
+                            >
+                                {title}
+                            </h1>
+                        )
                     }
-                </BreadcrumbList>
-            </Breadcrumb>
-            <MinimalModeToggle />
+                </div>
+            </div>
+            <slot />
         </div>
-        <div class="flex flex-col gap-4 mt-4">
-            <h2
-                class="scroll-m-20 first:mt-0 pb-2 border-b font-semibold text-3xl tracking-tight"
-            >
-                {title}
-            </h2>
-        </div>
-        <slot />
     </main>
 </Layout>

@@ -1,7 +1,7 @@
 import {
     Accordion as BaseAccordion,
 } from "@/components/ui/accordion";
-import { Badge } from "./ui/badge";
+// import { Badge } from "./ui/badge";
 import type { InferEntrySchema, Render } from "astro:content";
 
 type Post = {
@@ -29,7 +29,7 @@ export function Accordion({ path, data }: Props) {
             {data.map((item, i) => {
                 return (
                     <div
-                        className="border-b"
+                        className="flex flex-col flex-1 gap-y-2 sm:px-2 py-4 border-b font-medium hover:cursor-pointer group"
                         ref={item.selected ? (ref) => {
                             if (ref) ref.scrollIntoView({ behavior: 'smooth' });
                         } : undefined}
@@ -38,22 +38,21 @@ export function Accordion({ path, data }: Props) {
                             window.location.href = `/${path}/${item.data.slug.toLowerCase()}/`;
                         }}
                     >
-                        <div className="flex">
-                            <button
-                                className="flex flex-1 items-center sm:px-2 justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 group"
-                            >
-                                <span className="sm:group-hover:underline">
-                                    {item.data.title}
-                                </span>
-                                {item.data.tags && item.data.tags.length > 0 && (
-                                    <div className="flex space-x-2">
-                                        {item.data.tags.sort().map((tag, index) => (
-                                            <Badge className="hover:no-underline" key={index} variant="outline">{tag}</Badge>
-                                        ))}
-                                    </div>
-                                )}
-                            </button>
+                        <div className="flex flex-row justify-between w-full">
+                            <span className="sm:group-hover:underline">
+                                {item.data.title}
+                            </span>
+                            <span className="font-normal text-muted-foreground">
+                                {item.data.date.toLocaleDateString("ja-JP")}
+                            </span>
                         </div>
+                        {/* {item.data.tags.length > 0 && (
+                            <div className="flex space-x-2">
+                                {item.data.tags.sort().map((tag, index) => (
+                                    <Badge className="hover:no-underline" key={index} variant="outline">{tag}</Badge>
+                                ))}
+                            </div>
+                        )} */}
                     </div>
                 );
             })}
