@@ -17,14 +17,27 @@ const { grids } = Astro.props;
     <CardHeader>
         <CardTitle>About me</CardTitle>
         <CardDescription>
-            <p class="mt-1 leading-5">My primary tools of choice are:</p>
-            <ul class="my-3 ml-5 list-disc [&>li]:mt-2">
-                <li>Golang</li>
-                <li>Javascript</li>
-                <li>Typescript</li>
-                <li>Tailwind CSS</li>
-            </ul>
-            Blah, blah, blah. More yapping.
+            <div class="mt-2 dark:prose-invert prose prose-sm">
+                <p>
+                    I'm Tahir Murata, a backend developer based in Japan focused
+                    on building scalable, high-performance software solutions.
+                    I'm proficient in both Japanese and English.
+                </p>
+                <p class="mb-0">My technical expertise includes:</p>
+                <ul class="mt-0">
+                    <li>Go</li>
+                    <li>Templ</li>
+                    <li>HTMX</li>
+                    <li>TypeScript</li>
+                    <li>Tailwind CSS</li>
+                </ul>
+                <p>
+                    While I specialize in backend systems, I'm equally invested
+                    in design principles — creating intuitive, user-friendly
+                    interfaces and developing websites like the one you're
+                    currently exploring.
+                </p>
+            </div>
         </CardDescription>
     </CardHeader>
 </Card>
