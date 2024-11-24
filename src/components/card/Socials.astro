@@ -46,7 +46,7 @@ const socials = [
                 socials.map((social) => (
                     <li>
                         <HoverCard
-                            client:load
+                            client:visible
                             serviceName={social.serviceName}
                             serviceURL={social.serviceURL}
                             serviceDate={new Date(social.serviceDate)}
