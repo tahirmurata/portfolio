@@ -41,7 +41,6 @@ export function HoverCard({ serviceName, serviceURL, serviceDate }: Props) {
                         <div className="flex items-center pt-2">
                             <CalendarDays className="opacity-70 mr-2 w-4 h-4" />{" "}
                             <span className="text-muted-foreground text-xs">
-                                {/* Joined December 2021 */}
                                 Joined {serviceDate.toLocaleDateString("en-US", {
                                     month: "long",
                                     year: "numeric",
