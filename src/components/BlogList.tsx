@@ -19,7 +19,7 @@ interface Props {
     data: Post[];
 }
 
-export function Accordion({ path, data }: Props) {
+export function List({ path, data }: Props) {
     return (
         <BaseAccordion className="w-full" type="single"
             {...(data.findIndex(item => item.selected) !== -1 && {

@@ -1,5 +1,5 @@
 ---
-import { Accordion } from "@/components/BlogAccordion";
+import { List } from "@/components/BlogList";
 import Prose from "@/components/Prose.astro";
 import MinimalLayout from "@/layouts/MinimalLayout.astro";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
@@ -49,7 +49,7 @@ if (post) {
 >
     {
         (!post && (
-            <Accordion
+            <List
                 client:load
                 path="blog"
                 data={blog.map((post) => ({
