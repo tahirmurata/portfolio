@@ -1,5 +1,6 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { HoverCard } from "../HoverCard";
 
 interface Props {
     grids: string;
@@ -9,16 +10,19 @@ const { grids } = Astro.props;
 
 const socials = [
     {
-        name: "GitHub",
-        url: "https://github.com/tahirmurata",
+        serviceName: "GitHub",
+        serviceURL: "https://github.com/tahirmurata",
+        serviceDate: "2023-10-01",
     },
+    // {
+    //     name: "GitLab",
+    //     username: "paste",
+    //     url: "https://gitlab.com/paste",
+    // },
     {
-        name: "GitLab",
-        url: "https://gitlab.com/paste",
-    },
-    {
-        name: "Twitter",
-        url: "https://twitter.com/tahirmurata",
+        serviceName: "Twitter",
+        serviceURL: "https://twitter.com/tahirmurata",
+        serviceDate: "2023-01-01",
     },
 ];
 ---
@@ -41,9 +45,12 @@ const socials = [
             {
                 socials.map((social) => (
                     <li>
-                        <a href={social.url} class="hover:underline">
-                            {social.name}
-                        </a>
+                        <HoverCard
+                            client:load
+                            serviceName={social.serviceName}
+                            serviceURL={social.serviceURL}
+                            serviceDate={new Date(social.serviceDate)}
+                        />
                     </li>
                 ))
             }
