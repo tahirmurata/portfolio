@@ -1,10 +1,5 @@
 ---
-import {
-    Card,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Props {
     grids: string;
@@ -16,28 +11,27 @@ const { grids } = Astro.props;
 <Card className={`overflow-hidden ${grids}`}>
     <CardHeader>
         <CardTitle>About me</CardTitle>
-        <CardDescription>
-            <div class="mt-2 dark:prose-invert prose prose-sm">
-                <p>
-                    I'm Tahir Murata, a backend developer based in Japan focused
-                    on building scalable, high-performance software solutions.
-                    I'm proficient in both Japanese and English.
-                </p>
-                <p class="mb-0">My technical expertise includes:</p>
-                <ul class="mt-0">
-                    <li>Go</li>
-                    <li>Templ</li>
-                    <li>HTMX</li>
-                    <li>TypeScript</li>
-                    <li>Tailwind CSS</li>
-                </ul>
-                <p>
-                    While I specialize in backend systems, I'm equally invested
-                    in design principles — creating intuitive, user-friendly
-                    interfaces and developing websites like the one you're
-                    currently exploring.
-                </p>
-            </div>
-        </CardDescription>
     </CardHeader>
+    <CardContent>
+        <div class="dark:prose-invert prose prose-sm">
+            <p>
+                I'm Tahir Murata, a backend developer based in Japan focused on
+                building scalable, high-performance software solutions. I'm
+                proficient in both Japanese and English.
+            </p>
+            <p class="mb-0">My technical expertise includes:</p>
+            <ul class="mt-0">
+                <li>Go</li>
+                <li>Templ</li>
+                <li>HTMX</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS</li>
+            </ul>
+            <p>
+                While I specialize in backend systems, I'm equally invested in
+                design principles — creating intuitive, user-friendly interfaces
+                and developing websites like the one you're currently exploring.
+            </p>
+        </div>
+    </CardContent>
 </Card>
