@@ -5,6 +5,10 @@ interface Props {
     grids: string;
 }
 
+const skills = ["Go", "Templ", "HTMX", "TypeScript", "Tailwind CSS"].sort(
+    (a, b) => a.length - b.length,
+);
+
 const { grids } = Astro.props;
 ---
 
@@ -13,25 +17,20 @@ const { grids } = Astro.props;
         <CardTitle>About me</CardTitle>
     </CardHeader>
     <CardContent>
-        <div class="dark:prose-invert prose prose-sm">
+        <section class="text-pretty dark:prose-invert prose prose-sm">
             <p>
-                I'm Tahir Murata, a backend software developer based in Japan
-                focused on building scalable, high-performance software
-                solutions. I'm proficient in both Japanese and English.
+                I enjoy working on projects that solve real problems, and am
+                proficient in both Japanese and English.
             </p>
-            <p>My technical expertise includes:</p>
+            <h4>Core technical skills</h4>
             <ul>
-                <li>Go</li>
-                <li>Templ</li>
-                <li>HTMX</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
+                {skills.map((skill) => <li>{skill}</li>)}
             </ul>
             <p>
-                While I specialize in backend systems, I'm equally invested in
-                design principles — creating intuitive, user-friendly interfaces
-                and developing websites like the one you're currently exploring.
+                Though I specialize in backend systems, I enjoy crafting clean
+                web experiences that emphasize functionality and visual
+                harmony—as demonstrated by this portfolio's design choices.
             </p>
-        </div>
+        </section>
     </CardContent>
 </Card>
