@@ -23,9 +23,9 @@ const { grids } = Astro.props;
     <Picture
         src={banner}
         formats={["avif", "webp"]}
+        loading={"eager"}
         alt=""
         class="absolute inset-0 blur-md md:blur-sm lg:blur-none w-full h-full object-center object-cover"
-        loading={"eager"}
     />
     <div class="right-0 bottom-0 absolute p-2 dark">
         <BoxReveal client:visible boxColor={"#3B80A1"} duration={0.4}>

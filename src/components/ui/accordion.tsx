@@ -37,8 +37,8 @@ const AccordionTrigger = React.forwardRef<
         <span className="sm:group-hover:underline">{children}</span>
         {tags && tags.length > 0 && (
           <div className="flex space-x-2">
-            {tags.sort().map((tag, index) => (
-              <Badge className="hover:no-underline" key={index} variant="outline">{tag}</Badge>
+            {tags.sort((a, b) => a.length - b.length).map((tag, index) => (
+              <Badge key={index} variant="outline">{tag}</Badge>
             ))}
           </div>
         )}

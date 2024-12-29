@@ -1,4 +1,3 @@
-// import { z, defineCollection } from 'astro:content';
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 
@@ -14,14 +13,14 @@ const blog = defineCollection({
 });
 
 const projects = defineCollection({
-    loader: file("./src/content/projects/project.json"),
+    loader: file("./src/content/projects/projects.json"),
     schema: z.object({
         title: z.string(),
-        tags: z.array(z.enum(["Go", "PostgreSQL", "Vue"])),
+        tags: z.array(z.enum(["Go", "PostgreSQL", "Vue", "Astro", "React", "TypeScript", "Tailwind CSS"])),
         description: z.string(),
         links:
             z.array(z.object({
-                name: z.enum(["GitHub", "Go Package", "Blog",]),
+                name: z.enum(["GitHub", "Go Package", "Blog", "URL"]),
                 url: z.string()
             }))
     }),

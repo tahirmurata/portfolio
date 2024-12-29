@@ -1,5 +1,22 @@
 [
     {
+        "title": "Portfolio",
+        "slug": "portfolio",
+        "description": "My personal portfolio website.",
+        "tags": [
+            "Astro",
+            "React",
+            "TypeScript",
+            "Tailwind CSS"
+        ],
+        "links": [
+            {
+                "name": "URL",
+                "url": "https://muratahir.com"
+            }
+        ]
+    },
+    {
         "title": "F3S",
         "slug": "f3s",
         "description": "F3S is a system that simplifies tracking and managing purchases at food stalls during school festivals.",

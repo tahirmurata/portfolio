@@ -3,6 +3,7 @@ import {
 } from "@/components/ui/accordion";
 // import { Badge } from "./ui/badge";
 import type { InferEntrySchema, Render } from "astro:content";
+import { Badge } from "./ui/badge";
 
 type Post = {
     id: string;
@@ -42,17 +43,19 @@ export function List({ path, data }: Props) {
                             <span className="sm:group-hover:underline">
                                 {item.data.title}
                             </span>
-                            <span className="font-normal text-muted-foreground">
-                                {item.data.date.toLocaleDateString("ja-JP")}
-                            </span>
-                        </div>
-                        {/* {item.data.tags.length > 0 && (
-                            <div className="flex space-x-2">
-                                {item.data.tags.sort().map((tag, index) => (
-                                    <Badge className="hover:no-underline" key={index} variant="outline">{tag}</Badge>
-                                ))}
+                            <div className="flex flex-row items-center space-x-4">
+                                {item.data.tags.length > 0 && (
+                                    <div className="flex space-x-2">
+                                        {item.data.tags.sort().map((tag, index) => (
+                                            <Badge key={index} variant="outline">{tag}</Badge>
+                                        ))}
+                                    </div>
+                                )}
+                                <span className="font-normal text-muted-foreground">
+                                    {item.data.date.toLocaleDateString("ja-JP")}
+                                </span>
                             </div>
-                        )} */}
+                        </div>
                     </div>
                 );
             })}

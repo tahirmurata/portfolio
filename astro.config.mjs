@@ -18,7 +18,7 @@ export default defineConfig({
       lastmod: new Date(),
     }),
     tailwind({
-      applyBaseStyles: false,
+      applyBaseStyles: true,
     }),
     react(),
   ],

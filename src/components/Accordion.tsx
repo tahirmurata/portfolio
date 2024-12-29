@@ -55,10 +55,9 @@ export function Accordion({ path, data }: Props) {
                             </p>
                             <div className="ml-auto max-w-fit">
                                 {item.data.links && item.data.links.map((link, i) => (
-                                    <Button key={i} variant="link" onClick={(e) => {
-                                        e.preventDefault();
-                                        window.open(link.url, "_blank");
-                                    }}>{link.name}</Button>
+                                    <a href={link.url} key={i} rel="noopener noreferrer">
+                                        <Button key={i} variant="link">{link.name}</Button>
+                                    </a>
                                 ))}
                             </div>
                         </AccordionContent>
