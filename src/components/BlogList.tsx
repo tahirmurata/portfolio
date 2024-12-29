@@ -2,16 +2,16 @@ import {
     Accordion as BaseAccordion,
 } from "@/components/ui/accordion";
 // import { Badge } from "./ui/badge";
-import type { InferEntrySchema, Render } from "astro:content";
+import type { InferEntrySchema, RenderedContent } from "astro:content";
 import { Badge } from "./ui/badge";
 
 type Post = {
     id: string;
-    slug: string;
-    body: string;
-    collection: string;
+    body?: string;
+    collection: "blog";
     data: InferEntrySchema<"blog">;
-    render(): Render[".md"];
+    rendered?: RenderedContent;
+    filePath?: string;
     selected: boolean;
 }
 
