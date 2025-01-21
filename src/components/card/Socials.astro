@@ -1,5 +1,6 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Lock } from "lucide-react"
 
 interface Props {
     grids: string;
@@ -12,10 +13,10 @@ const socials = [
         serviceName: "GitHub",
         serviceURL: "https://github.com/tahirmurata",
     },
-    // {
-    //     serviceName: "GitLab",
-    //     serviceURL: "https://gitlab.com/paste",
-    // },
+    {
+        serviceName: "GitLab",
+        serviceURL: "https://gitlab.com/paste",
+    },
     {
         serviceName: "Twitter",
         serviceURL: "https://twitter.com/tahirmurata",
@@ -41,8 +42,9 @@ const socials = [
             {
                 socials.map((social) => (
                     <li>
-                        <a href={social.serviceURL} class="hover:underline">
+                        <a href={social.serviceURL} class="hover:underline flex items-center gap-1 max-w-min">
                             {social.serviceName}
+                            {(social.serviceName != "GitHub") ? <Lock size={14} strokeWidth={2.5} /> : <></> }
                         </a>
                     </li>
                 ))
