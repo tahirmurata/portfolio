@@ -6,6 +6,7 @@ import { CopyrightIcon } from "lucide-react";
 // Obtain the version and commit hash
 import { version } from "package.json";
 import { CF_PAGES_COMMIT_SHA } from "astro:env/client";
+import { cn } from "@/lib/utils";
 const year = new Date().getFullYear();
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
 const { grids } = Astro.props;
 ---
 
-<Card className={`${grids}`}>
+<Card className={cn(grids)}>
     <div
         class="flex flex-col justify-center items-center gap-y-1 p-6 md:p-0 h-full text-muted-foreground text-xs"
     >

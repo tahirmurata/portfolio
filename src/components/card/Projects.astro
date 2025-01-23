@@ -5,6 +5,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { getCollection } from "astro:content";
 import { ArrowUpRight } from "lucide-react";
 
@@ -18,7 +19,10 @@ const projects = await getCollection("projects");
 ---
 
 <Card
-    className={`flex flex-col justify-between group hover:cursor-pointer sm:hover:border-muted-foreground ${grids}`}
+    className={cn(
+        "flex flex-col justify-between group hover:cursor-pointer sm:hover:border-muted-foreground",
+        grids,
+    )}
     id="project_card"
 >
     <CardHeader>

@@ -1,5 +1,6 @@
 ---
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { Moon, Sun } from "lucide-react";
 
 interface Props {
@@ -11,7 +12,10 @@ const { grids } = Astro.props;
 
 <Card
     data-theme-toggle
-    className={`hover:cursor-pointer sm:hover:border-muted-foreground ${grids}`}
+    className={cn(
+        "hover:cursor-pointer sm:hover:border-muted-foreground",
+        grids,
+    )}
 >
     <div
         class="flex flex-col justify-center items-center gap-4 p-6 md:p-0 h-full"

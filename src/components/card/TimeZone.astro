@@ -1,5 +1,6 @@
 ---
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface Props {
     grids: string;
@@ -8,7 +9,7 @@ interface Props {
 const { grids } = Astro.props;
 ---
 
-<Card className={`relative ${grids}`}>
+<Card className={cn("relative", grids)}>
     <div
         class="flex flex-col justify-center items-center gap-4 p-6 md:p-0 h-full font-bold text-3xl"
     >

@@ -1,5 +1,6 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { Lock } from "lucide-react"
 
 interface Props {
@@ -24,7 +25,7 @@ const socials = [
 ];
 ---
 
-<Card className={`${grids}`}>
+<Card className={cn(grids)}>
     <CardHeader>
         <CardTitle>Contact me</CardTitle>
     </CardHeader>

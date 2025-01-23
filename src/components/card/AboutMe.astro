@@ -1,5 +1,6 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface Props {
     grids: string;
@@ -12,7 +13,7 @@ const skills = ["Go", "Vue", "React", "TypeScript", "Tailwind CSS"].sort(
 const { grids } = Astro.props;
 ---
 
-<Card className={`${grids}`}>
+<Card className={cn(grids)}>
     <CardHeader>
         <CardTitle>About me</CardTitle>
     </CardHeader>

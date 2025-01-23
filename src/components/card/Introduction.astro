@@ -8,6 +8,7 @@ import {
 import BoxReveal from "@/components/ui/box-reveal";
 import { Picture } from "astro:assets";
 import banner from "@/assets/banner.jpg";
+import { cn } from "@/lib/utils";
 
 interface Props {
     grids: string;
@@ -16,7 +17,7 @@ interface Props {
 const { grids } = Astro.props;
 ---
 
-<Card className={`relative h-full overflow-hidden ${grids}`}>
+<Card className={cn("relative h-full overflow-hidden ", grids)}>
     <!-- 
         Artwork by Gracile https://www.gracile.jp/
     -->
