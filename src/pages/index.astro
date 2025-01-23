@@ -6,9 +6,9 @@ import AboutMe from "@/components/card/AboutMe.astro";
 import Socials from "@/components/card/Socials.astro";
 import Projects from "@/components/card/Projects.astro";
 import Blog from "@/components/card/Blog.astro";
-import TimeZone from "@/components/card/TimeZone.astro";
 import Info from "@/components/card/Info.astro";
 import ModeToggle from "@/components/card/ModeToggle.astro";
+import TimeZone from "@/components/card/TimeZone.astro";
 ---
 
 <Layout title="Tahir Murata">
@@ -30,10 +30,10 @@ import ModeToggle from "@/components/card/ModeToggle.astro";
 		<Blog
 			grids="md:col-start-3 lg:col-start-3 md:row-span-3 lg:row-span-3 md:row-start-6 lg:row-start-6"
 		/>
-		<TimeZone
+		<ModeToggle
 			grids="md:col-start-2 lg:col-start-2 md:row-start-6 md:row-span-2 lg:row-span-1 lg:row-start-5"
 		/>
-		<ModeToggle
+		<TimeZone
 			grids="md:col-start-2 lg:col-start-3 md:row-start-8 md:row-span-2 lg:row-start-5 lg:row-span-1"
 		/>
 		<Info
