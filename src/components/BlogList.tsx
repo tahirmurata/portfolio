@@ -1,7 +1,6 @@
 import {
     Accordion as BaseAccordion,
 } from "@/components/ui/accordion";
-// import { Badge } from "./ui/badge";
 import type { InferEntrySchema, RenderedContent } from "astro:content";
 import { Badge } from "./ui/badge";
 
@@ -20,7 +19,7 @@ interface Props {
     data: Post[];
 }
 
-export function List({ path, data }: Props) {
+export function BlogList({ path, data }: Props) {
     return (
         <BaseAccordion className="w-full" type="single"
             {...(data.findIndex(item => item.selected) !== -1 && {
