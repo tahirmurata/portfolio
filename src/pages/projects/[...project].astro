@@ -1,5 +1,5 @@
 ---
-import { Accordion } from "@/components/Accordion";
+import { ProjectList } from "@/components/ProjectList";
 import MinimalLayout from "@/layouts/MinimalLayout.astro";
 import { getCollection } from "astro:content";
 
@@ -35,7 +35,7 @@ const { projects } = Astro.props;
         },
     ]}
 >
-    <Accordion
+    <ProjectList
         path="projects"
         data={projects.map((project) => ({
             ...project,
