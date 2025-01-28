@@ -28,16 +28,16 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center sm:px-2 justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 group",
+        "flex flex-1 items-center px-2 justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180 group",
         className
       )}
       {...props}
     >
-      <div className="flex flex-row justify-between w-full">
+      <div className="flex flex-row md:justify-between w-full">
         <span className="sm:group-hover:underline text-left mr-4">{children}</span>
         <div className="pr-2">
           {tags && tags.length > 0 && (
-            <div className="flex flex-row-reverse flex-wrap gap-2">
+            <div className="flex flex-row md:flex-row-reverse flex-wrap gap-2">
               {tags.sort((a, b) => b.length - a.length).map((tag, index) => (
                 <Badge key={index} variant="outline">{tag}</Badge>
               ))}
@@ -57,7 +57,7 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="sm:px-2 text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden"
+    className="px-2 text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden"
     {...props}
   >
     <div className={cn("pb-4 pt-0", className)}>{children}</div>
