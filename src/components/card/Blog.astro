@@ -1,7 +1,7 @@
 ---
 import {
     Card,
-    CardDescription,
+    CardContent,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -20,7 +20,7 @@ const blog = await getCollection("blog");
 
 <Card
     className={cn(
-        "flex flex-col justify-between group hover:cursor-pointer sm:hover:border-muted-foreground",
+        "flex flex-col group hover:cursor-pointer sm:hover:border-muted-foreground",
         grids,
     )}
     id="blog_card"
@@ -32,23 +32,23 @@ const blog = await getCollection("blog");
                 className="transition-transform sm:group-hover:translate-x-1 sm:group-hover:-translate-y-1 duration-200 size-6"
             />
         </CardTitle>
-        <CardDescription>
-            <ul class="ml-5 text-foreground list-disc text-base [&>li]:mt-1">
-                {
-                    blog.slice(0, 5).map((post) => (
-                        <li>
-                            <a
-                                class="hover:underline"
-                                href={`/blog/${post.data.slug}/`}
-                            >
-                                {post.data.title}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </CardDescription>
     </CardHeader>
+    <CardContent>
+        <ul class="ml-5 text-foreground list-disc text-base [&>li]:mt-1">
+            {
+                blog.slice(0, 5).map((post) => (
+                    <li>
+                        <a
+                            class="hover:underline"
+                            href={`/blog/${post.data.slug}/`}
+                        >
+                            {post.data.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </CardContent>
 </Card>
 
 <script>
