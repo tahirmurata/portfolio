@@ -32,7 +32,7 @@ const projects = await getCollection("projects");
                 className="transition-transform sm:group-hover:translate-x-1 sm:group-hover:-translate-y-1 duration-200 size-6"
             />
         </CardTitle>
-        <CardDescription className="!mt-3">
+        <CardDescription>
             <ul class="ml-5 text-foreground list-disc text-base [&>li]:mt-1">
                 {
                     projects.slice(0, 5).map((project) => (
