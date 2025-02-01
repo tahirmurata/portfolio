@@ -2,7 +2,7 @@
     {
         "title": "Portfolio",
         "slug": "portfolio",
-        "description": "My personal portfolio website.",
+        "description": "Portfolio website built with React.",
         "tags": [
             "Astro",
             "React",
