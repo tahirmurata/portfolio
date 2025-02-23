@@ -9,7 +9,7 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true
   },
-  site: "https://muratahir.com",
+  site: "https://tahirmurata.com",
   trailingSlash: 'always',
   integrations: [
     sitemap({
